@@ -8,9 +8,6 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
   quotes:Quote[]
-  onNewQuote(quote:Quote) {
-    this.quotes.push(quote);
-  }
 
   constructor() {
     this.quotes = [
@@ -46,6 +43,18 @@ export class QuoteComponent implements OnInit {
       )
     ]
    }
+
+   onNewQuote(quote:Quote) {
+    this.quotes.push(quote);
+  }
+
+  voteUp(index:number) {
+    this.quotes[index].upvotes += 1
+  }
+
+  voteDown(index:number) {
+    this.quotes[index].downvotes += 1
+  }
 
   ngOnInit(): void {
   }

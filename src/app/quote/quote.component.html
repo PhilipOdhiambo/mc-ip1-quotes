@@ -6,7 +6,15 @@
             <h2 class="text-center" style="color: #fff;font-weight: 300;">Quotes</h2>
 
             <ul>
-                <li *ngFor="let quote of quotes">
+                <li *ngFor="let quote of quotes;let i=index">
+                    <span class="vote up" (click)="voteUp(i)">
+                        <i class="fas fa-thumbs-up"></i>
+                        {{quote.upvotes}}
+                    </span>
+                    <span class="vote down" (click)="voteDown(i)">
+                        <i class="fas fa-thumbs-down"></i>
+                        {{quote.downvotes}}
+                    </span>
                     {{quote.author}}
                     {{quote.submitBy}}
 
