@@ -8,6 +8,9 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
   quotes:Quote[]
+  onNewQuote(quote:Quote) {
+    this.quotes.push(quote);
+  }
 
   constructor() {
     this.quotes = [

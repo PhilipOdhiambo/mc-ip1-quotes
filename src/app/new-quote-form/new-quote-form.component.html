@@ -1,4 +1,4 @@
-<form #newQuoteForm (ngSubmit)="onSubmit(newQuoteForm)">
+<form #newQuoteForm="ngForm" (ngSubmit)="onSubmit(newQuoteForm)">
 
     <h5>New Quote</h5>
     <hr>
@@ -6,24 +6,33 @@
     <div class="form-group">
 
         <label class="form-label" for="quote">Quote:</label>
-        <textarea id="quote" class="form-control" [(ngModel)]="newQuote.quote" name="quote" type="text" rows="3"
-            placeholder="new quote..."></textarea>
+        <textarea #quote="ngModel" id="quote" class="form-control" [(ngModel)]="newQuote.quote" name="quote" type="text" rows="3"
+            placeholder="new quote..." required></textarea>
+        <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger"> 
+            <span>Name is required</span> 
+        </div>
 
     </div>
 
     <div class="form-group">
 
         <label class="form-label" for="author">Author:</label>
-        <input id="author" class="form-control" [(ngModel)]="newQuote.author" name="author" type="text"
+        <input #author="ngModel" id="author" class="form-control" [(ngModel)]="newQuote.author" name="author" type="text" required
             placeholder="quote author...">
+        <div [hidden]="author.valid || author.pristine" class="alert alert-danger"> 
+            <span>author is required</span> 
+        </div>
 
     </div>
 
     <div class="form-group">
 
         <label class="form-label" for="submitBy">Submitted by:</label>
-        <input id="submitBy" class="form-control" [(ngModel)]="newQuote.submitBy" name="submitBy" type="text"
-            placeholder="Your name ...">
+        <input #submitBy="ngModel" id="submitBy" class="form-control" [(ngModel)]="newQuote.submitBy" name="submitBy" type="text"
+            placeholder="Your name ..." required>
+        <div [hidden]="submitBy.valid || submitBy.pristine" class="alert alert-danger"> 
+            <span>submitter name is required</span> 
+        </div>
 
     </div>
 
