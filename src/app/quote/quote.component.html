@@ -1,7 +1,23 @@
-<div class="container">
-    <ul>
-        <li *ngFor="let quote of quotes">
-            {{quote.quote}}
-        </li>
-    </ul>
-</div>
+<section class="container">
+
+    <div class="row">
+
+        <div class="quotes col-md-7">
+            <h2 class="text-center" style="color: #fff;font-weight: 300;">Quotes</h2>
+
+            <ul>
+                <li *ngFor="let quote of quotes">
+                    {{quote.quote}}
+                </li>
+            </ul>
+
+        </div>
+
+        <div class=" new-quote col-md-5">
+            
+            <app-new-quote-form></app-new-quote-form>
+        </div>
+
+    </div>
+
+</section>
