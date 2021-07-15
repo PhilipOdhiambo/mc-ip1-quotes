@@ -1,1 +1,7 @@
-<p appTopQuote>quote works!</p>
+<div class="container">
+    <ul>
+        <li *ngFor="let quote of quotes">
+            {{quote.quote}}
+        </li>
+    </ul>
+</div>

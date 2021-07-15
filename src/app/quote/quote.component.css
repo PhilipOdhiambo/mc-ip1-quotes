@@ -1,0 +1,42 @@
+.container {
+    background-color: #565f68;
+    padding-right: 3px;
+    padding-top: 0;
+}
+ul {
+    max-height: 61vh;
+    overflow-y: auto;
+    list-style: none;
+    padding: 2rem;
+}
+
+
+li {
+    padding: .5rem;
+    background-color: whitesmoke;
+    margin-bottom: .75rem;
+    border-radius: .25rem;
+}
+
+li:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Style croll Bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #565f68; 
+  }   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
