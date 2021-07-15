@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewQuoteFormComponent implements OnInit {
 
+  test:string = '';
+
   constructor() { }
 
   ngOnInit(): void {
