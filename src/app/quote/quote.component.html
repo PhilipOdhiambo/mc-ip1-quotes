@@ -6,12 +6,23 @@
             <h2 class="text-center" style="color: #fff;font-weight: 300;">Quotes</h2>
 
             <ul>
-                <li *ngFor="let quote of quotes;let i=index">
+                <li appTopQuote>
+                    <p>Rank:1 (TOP QUOTE)</p>
+
+                    {{getTopQuote().quote}}
+                    <app-quote-detail *ngIf="getTopQuote().showDetail" [quote]="getTopQuote()" (upvote)="onUpvote(0)" (downvote)="onDownvote(0)" (quoteDelete)="onQuoteDelete(0)"></app-quote-detail>
+
+                    <p class="toggle" (click)="getTopQuote().showDetail=!getTopQuote().showDetail"><a href="#">Show/hide Details</a></p>
+
+                </li>                
+
+                <li *ngFor="let quote of quotes|slice:1;let i=index">
+                    <p>Rank: {{i + 2}}</p>
+
                     {{quote.quote}}
-                    <app-quote-detail *ngIf="quote.showDetail" [quote]="quote" (upvote)="onUpvote(i)" (downvote)="onDownvote(i)" (quoteDelete)="onQuoteDelete(i)"></app-quote-detail>
+                    <app-quote-detail *ngIf="quote.showDetail" [quote]="quote" (upvote)="onUpvote(i+1)" (downvote)="onDownvote(i+1)" (quoteDelete)="onQuoteDelete(i+1)"></app-quote-detail>
 
-                    <p (click)="quote.showDetail=!quote.showDetail"><a href="#">Show/hide Details</a></p>
-
+                    <p class="toggle" (click)="quote.showDetail=!quote.showDetail"><a href="#">Show/hide Details</a></p>
                 </li>
             </ul>
 

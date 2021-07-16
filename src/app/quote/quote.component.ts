@@ -70,6 +70,13 @@ export class QuoteComponent implements OnInit {
   
   }
 
+  public getTopQuote():Quote {
+    this.rankQuotes()
+    return this.quotes[0]
+
+  }
+
+
   onQuoteDelete(index:number) {
     this.quotes.splice(index,1);
   }
