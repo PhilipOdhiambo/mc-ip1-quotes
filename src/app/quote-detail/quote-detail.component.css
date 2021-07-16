@@ -1,0 +1,19 @@
+.vote {
+    display:inline-block;
+    padding: 1em;
+    margin: .25rem;
+    border-radius: 2px;
+    cursor: pointer;
+    background-color:#8a8a8d6b ;
+  }
+  .vote:hover {
+    background-color: #a1a1a56b;
+  }
+  
+  .vote.up {
+    color: rgb(108, 194, 108);
+  }
+  
+  .vote.down {
+    color: tomato;
+  }

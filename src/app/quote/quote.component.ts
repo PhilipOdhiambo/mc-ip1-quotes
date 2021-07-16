@@ -48,11 +48,11 @@ export class QuoteComponent implements OnInit {
     this.quotes.push(quote);
   }
 
-  voteUp(index:number) {
+  onUpvote(index:number) {
     this.quotes[index].upvotes += 1
   }
 
-  voteDown(index:number) {
+  onDownvote(index:number) {
     this.quotes[index].downvotes += 1
   }
 

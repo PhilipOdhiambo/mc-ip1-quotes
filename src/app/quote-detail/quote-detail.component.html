@@ -1,1 +1,10 @@
-<p>quote-detail works!</p>
+<div>
+    <span class="vote up" (click)="voteUp()">
+        <i class="fas fa-thumbs-up"></i>
+        {{quote.upvotes}}
+    </span>
+    <span class="vote down" (click)="voteDown()">
+        <i class="fas fa-thumbs-down"></i>
+        {{quote.downvotes}}
+    </span>
+</div>
