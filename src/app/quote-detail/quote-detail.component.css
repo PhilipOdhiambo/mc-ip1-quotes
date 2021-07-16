@@ -1,8 +1,13 @@
-.vote {
-    display:inline-block;
-    padding: 1em;
-    margin: .25rem;
-    border-radius: 2px;
+span {
+  display:inline-block;
+  padding: .5rem;
+  margin-left: .5rem;
+
+  border-radius: 2px;
+
+}
+span.vote {
+
     cursor: pointer;
     background-color:#8a8a8d6b ;
   }
