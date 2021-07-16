@@ -70,6 +70,10 @@ export class QuoteComponent implements OnInit {
   
   }
 
+  onQuoteDelete(index:number) {
+    this.quotes.splice(index,1);
+  }
+
   ngOnInit(): void {
   }
 

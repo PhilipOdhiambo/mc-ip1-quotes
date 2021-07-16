@@ -11,6 +11,8 @@ export class QuoteDetailComponent implements OnInit {
   @Input() quote?:Quote
   @Output() upvote = new EventEmitter()
   @Output() downvote = new EventEmitter()
+  @Output() quoteDelete = new EventEmitter()
+
 
 
   constructor() { }
@@ -21,6 +23,10 @@ export class QuoteDetailComponent implements OnInit {
 
   voteDown() {
     this.downvote.emit()
+  }
+
+  deleteQuote(){
+    this.quoteDelete.emit();
   }
 
 
