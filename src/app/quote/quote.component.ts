@@ -46,14 +46,28 @@ export class QuoteComponent implements OnInit {
 
    onNewQuote(quote:Quote) {
     this.quotes.push(quote);
+    this.rankQuotes()
   }
 
   onUpvote(index:number) {
     this.quotes[index].upvotes += 1
+    this.rankQuotes()
   }
 
   onDownvote(index:number) {
     this.quotes[index].downvotes += 1
+    this.rankQuotes()
+  }
+
+  rankQuotes() {
+    this.quotes.sort((a,b) => {
+      let rankA = a.upvotes - a.downvotes
+      let rankB = b.upvotes - b.downvotes
+      if (rankA < rankB) return 1
+      if (rankA > rankB) return -1
+      return 0
+    })
+  
   }
 
   ngOnInit(): void {

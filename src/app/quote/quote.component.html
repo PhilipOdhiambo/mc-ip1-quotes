@@ -7,7 +7,6 @@
 
             <ul>
                 <li *ngFor="let quote of quotes;let i=index">
-                    
                     {{quote.quote}}
                     <app-quote-detail [quote]="quote" (upvote)="onUpvote(i)" (downvote)="onDownvote(i)"></app-quote-detail>
 
