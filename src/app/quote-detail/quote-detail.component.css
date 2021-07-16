@@ -16,9 +16,14 @@ span.vote {
   }
   
   .vote.up {
-    color: rgb(108, 194, 108);
+    color: #baffb6;
   }
   
   .vote.down {
-    color: tomato;
+    color: #ffebc7;
+  }
+
+  .vote.delete {
+    color: #f66145;
+    float: right;
   }

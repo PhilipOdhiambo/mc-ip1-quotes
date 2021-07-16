@@ -1,6 +1,7 @@
 export class Quote {
     upvotes:number;
     downvotes:number;
+    showDetail:boolean
     constructor(
         public quote: string,
         public author:string,
@@ -9,6 +10,7 @@ export class Quote {
     ) {
         this.upvotes = 0;
         this.downvotes = 0;
+        this.showDetail = false;
     }
 
 }
