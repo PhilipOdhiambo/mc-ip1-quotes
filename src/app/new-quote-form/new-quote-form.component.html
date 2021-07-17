@@ -9,7 +9,7 @@
         <textarea #quote="ngModel" id="quote" class="form-control" [(ngModel)]="newQuote.quote" name="quote" type="text" rows="3"
             placeholder="new quote..." required></textarea>
         <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger"> 
-            <span>Name is required</span> 
+            <span>quote is required</span> 
         </div>
 
     </div>
@@ -29,7 +29,7 @@
 
         <label class="form-label" for="submitBy">Submitted by:</label>
         <input #submitBy="ngModel" id="submitBy" class="form-control" [(ngModel)]="newQuote.submitBy" name="submitBy" type="text"
-            placeholder="Your name ..." required>
+            placeholder="submitter name ..." required>
         <div [hidden]="submitBy.valid || submitBy.pristine" class="alert alert-danger"> 
             <span>submitter name is required</span> 
         </div>
@@ -38,7 +38,7 @@
 
     <div class="form-group text-center">
 
-        <input class="btn btn-success px-5" type="submit" value="Submit">
+        <input class="btn btn-success px-5" type="submit" value="Enter">
 
     </div>
 

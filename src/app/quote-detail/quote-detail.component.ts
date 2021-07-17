@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, AfterViewInit, Output, ViewChild } from '@angular/core';
 import { Quote } from '../quote';
 
 @Component({
@@ -6,16 +6,18 @@ import { Quote } from '../quote';
   templateUrl: './quote-detail.component.html',
   styleUrls: ['./quote-detail.component.css']
 })
-export class QuoteDetailComponent implements OnInit {
+export class QuoteDetailComponent implements OnInit, AfterViewInit {
 
   @Input() quote?:Quote
   @Output() upvote = new EventEmitter()
   @Output() downvote = new EventEmitter()
   @Output() quoteDelete = new EventEmitter()
 
+ 
 
+  constructor() { 
 
-  constructor() { }
+  }
 
   voteUp() {
     this.upvote.emit()
@@ -31,6 +33,9 @@ export class QuoteDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+  }
+  ngAfterViewInit() {
   }
 
 }

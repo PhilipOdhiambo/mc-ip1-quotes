@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren } from '@angular/core';
 import { Quote } from '../quote';
 
 @Component({
@@ -8,6 +8,8 @@ import { Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
   quotes:Quote[]
+  
+
 
   constructor() {
     this.quotes = [
@@ -83,5 +85,6 @@ export class QuoteComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

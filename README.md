@@ -1,27 +1,54 @@
-# McIp1Quotes
+# Top Quote App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+For reading and ranking quotes
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This app display quotes organised in order of votes with the highest voted ranked as "top quote" and is shaded green.
 
-## Code scaffolding
+You click on the "show/hide details" link quote details like author and who posted it. You also see time lapsed since it was posted. Toggle the link with a little break in between to notice this time change. In this quote detail section is where you vote upvote or downvote. You can also delete the quote.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+There is a form for entering new quote. This form fields are required and leaving any black will higlight errors and the new quote will not be recorded.
 
-## Build
+## Live Demo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+You can check the complete app [here](https://philipodhiambo.github.io/mc-ip1-quotes).
 
-## Running unit tests
+## Technologies Used
+This app was built using the following technologies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular Framework
+- Bootstrap Framework
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Bugs
 
-## Further help
+There are no known bugs. Kindly report to the developer email incase you find any
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Installation Instruction
+
+To get the app install on your machine follow these steps:
+1. Ensure you have installed the latest stable release LTS of node
+1. Ensure angular CLI is installed
+1. Navigate to the directory you want to install the project
+1. On the command prompt or terminal run the commad
+
+    ```
+    git clone https://philipodhiambo.github.com/mc-ip1-quotes.git
+    ```
+1. Enter into the cloned project using command `` cd mc-ip1-quotes``
+
+1. run ``` npm install ``` to install node modules
+
+1.  Next fire angular local server by running ``` ng serve --open ```
+
+## CONTACT AND SUPPORT
+In case of bugs, collaboration or support, please contact me through email: *jofonowino@gmail.com*
+
+## Licence
+
+This work is protected under [MIT LICENCE](LICENCE).
+
+>>COPYRIGHT &copy; PHILIP OWINO 2021
+
+

@@ -16,8 +16,8 @@
 
                 </li>                
 
-                <li *ngFor="let quote of quotes|slice:1;let i=index">
-                    <p>Rank: {{i + 2}}</p>
+                <li #qu *ngFor="let quote of quotes|slice:1;let i=index">
+                    <p>{{i + 2}}:</p>
 
                     {{quote.quote}}
                     <app-quote-detail *ngIf="quote.showDetail" [quote]="quote" (upvote)="onUpvote(i+1)" (downvote)="onDownvote(i+1)" (quoteDelete)="onQuoteDelete(i+1)"></app-quote-detail>
