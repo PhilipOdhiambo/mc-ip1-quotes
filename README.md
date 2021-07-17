@@ -1,6 +1,10 @@
 # Top Quote App
 
-For reading and ranking quotes
+#### App for reading, voting on and posting new Quotes.
+
+## Author
+
+#### PHILIP ODHIAMBO
 
 ## Description
 
