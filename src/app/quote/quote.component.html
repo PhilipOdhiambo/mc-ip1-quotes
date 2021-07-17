@@ -7,7 +7,7 @@
 
             <ul>
                 <li appTopQuote>
-                    <p>Rank:1 (TOP QUOTE)</p>
+                    <p>1: (TOP QUOTE)</p>
 
                     {{getTopQuote().quote}}
                     <app-quote-detail *ngIf="getTopQuote().showDetail" [quote]="getTopQuote()" (upvote)="onUpvote(0)" (downvote)="onDownvote(0)" (quoteDelete)="onQuoteDelete(0)"></app-quote-detail>
