@@ -1,13 +1,23 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
   selector: '[appTopQuote]'
 })
 export class TopQuoteDirective {
 
-  constructor(private elem:ElementRef) {
-    this.elem.nativeElement.style.border = "3px solid #43a746"
-    this.elem.nativeElement.style.color = "white";
+  @Input()appTopQuote:boolean;
+
+  constructor(private elem:ElementRef) {}
+
+  ngOnInit() {
+
+  }
+
+  ngAfterViewInit() {
+    if (this.appTopQuote) {
+      this.elem.nativeElement.style.border = "3px solid #43a746"
+      this.elem.nativeElement.style.color = "white";
+    }
   }
 
 }

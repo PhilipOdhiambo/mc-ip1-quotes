@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, AfterViewInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, AfterViewInit, Output, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { Quote } from '../quote';
 
 @Component({
@@ -12,15 +12,16 @@ export class QuoteDetailComponent implements OnInit, AfterViewInit {
   @Output() upvote = new EventEmitter()
   @Output() downvote = new EventEmitter()
   @Output() quoteDelete = new EventEmitter()
+  @ViewChild('detail') detail:ElementRef
 
  
 
-  constructor() { 
+  constructor(private renderer:Renderer2) {}
+  private unlistener:()=>void;
 
-  }
-
-  voteUp() {
+  voteUp($event) {
     this.upvote.emit()
+    $event.target.focus()
   }
 
   voteDown() {
@@ -34,8 +35,12 @@ export class QuoteDetailComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
+
   }
   ngAfterViewInit() {
+    this.renderer.listen(this.detail.nativeElement, 'click', event => {
+      event.target.focus()
+    })
   }
 
 }

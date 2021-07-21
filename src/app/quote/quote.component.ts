@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, Renderer2, ViewChildren, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import { Quote } from '../quote';
 
 @Component({
@@ -6,12 +6,13 @@ import { Quote } from '../quote';
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.css']
 })
-export class QuoteComponent implements OnInit {
-  quotes:Quote[]
+export class QuoteComponent implements OnInit, AfterViewInit, OnDestroy{
   
+  quotes:Quote[]
+  @ViewChildren('li') liItems:QueryList<ElementRef>
+  topQuote:number = 0;
 
-
-  constructor() {
+  constructor(private renderer:Renderer2) {
     this.quotes = [
       new Quote(
         "Computers are like bikinis. They save people a lot of guesswork.",
@@ -48,20 +49,19 @@ export class QuoteComponent implements OnInit {
 
    onNewQuote(quote:Quote) {
     this.quotes.push(quote);
-    this.rankQuotes()
   }
 
   onUpvote(index:number) {
     this.quotes[index].upvotes += 1
-    this.rankQuotes()
+    
   }
 
   onDownvote(index:number) {
     this.quotes[index].downvotes += 1
-    this.rankQuotes()
   }
 
   rankQuotes() {
+
     this.quotes.sort((a,b) => {
       let rankA = a.upvotes - a.downvotes
       let rankB = b.upvotes - b.downvotes
@@ -69,11 +69,10 @@ export class QuoteComponent implements OnInit {
       if (rankA > rankB) return -1
       return 0
     })
-  
+    
   }
 
   public getTopQuote():Quote {
-    this.rankQuotes()
     return this.quotes[0]
 
   }
@@ -84,6 +83,21 @@ export class QuoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+    this.liItems.forEach((item , index) => {
+      const node = item.nativeElement as HTMLElement
+      node.addEventListener('click', () => {
+        this.rankQuotes()
+        setTimeout(() => node.scrollIntoView({behavior: "smooth", block: "start"}),0)
+      })
+      
+    })
+    
+  }
+
+  ngOnDestroy() {
   }
 
 

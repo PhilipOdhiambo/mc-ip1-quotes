@@ -17,7 +17,7 @@ import { NewQuoteFormComponent } from './new-quote-form/new-quote-form.component
     QuoteDetailComponent,
     TopQuoteDirective,
     TimePassedPipe,
-    NewQuoteFormComponent
+    NewQuoteFormComponent,
   ],
   imports: [
     BrowserModule,
