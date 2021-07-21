@@ -8,6 +8,7 @@
         <label class="form-label" for="quote">Quote:</label>
         <textarea #quote="ngModel" id="quote" class="form-control" [(ngModel)]="newQuote.quote" name="quote" type="text" rows="3"
             placeholder="new quote..." required></textarea>
+            
         <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger"> 
             <span>quote is required</span> 
         </div>

@@ -49,6 +49,12 @@ export class QuoteComponent implements OnInit, AfterViewInit, OnDestroy{
 
    onNewQuote(quote:Quote) {
     this.quotes.push(quote);
+    this.rankQuotes()
+    setTimeout(() =>{
+      const lastQuote = this.liItems.last.nativeElement as HTMLElement
+      lastQuote.scrollIntoView({behavior: "smooth", block: "start"})
+    },0)
+
   }
 
   onUpvote(index:number) {
@@ -72,12 +78,6 @@ export class QuoteComponent implements OnInit, AfterViewInit, OnDestroy{
     
   }
 
-  public getTopQuote():Quote {
-    return this.quotes[0]
-
-  }
-
-
   onQuoteDelete(index:number) {
     this.quotes.splice(index,1);
   }
@@ -86,13 +86,16 @@ export class QuoteComponent implements OnInit, AfterViewInit, OnDestroy{
   }
 
   ngAfterViewInit() {
-    this.liItems.forEach((item , index) => {
-      const node = item.nativeElement as HTMLElement
-      node.addEventListener('click', () => {
-        this.rankQuotes()
-        setTimeout(() => node.scrollIntoView({behavior: "smooth", block: "start"}),0)
+    this.liItems.changes.subscribe((newList:QueryList<ElementRef>) => {
+      this.liItems = newList
+      newList.forEach((item,index) => {
+        const node = item.nativeElement as HTMLElement
+        node.addEventListener('click', () => {
+          this.rankQuotes()
+          setTimeout(() => node.scrollIntoView({behavior: "smooth", block: "start"}),0)
+        })
       })
-      
+    
     })
     
   }
